@@ -1,5 +1,9 @@
 <template>
 	<Header/>
+
+	<main>
+		<router-view/>
+	</main>
 </template>
 <script>
 import Header from '@/components/Header.vue'
@@ -27,7 +31,7 @@ export default {
 body {
 	margin: 0;
 
-	font-size: clamp(10px, 1.5vw, 16px);
+	font-size: clamp(12px, 1.5vw, 16px);
 	font-family: 'Open Sans', sans-serif;
 
 	a {
@@ -40,4 +44,10 @@ body {
 	}
 }
 
+main {
+	display: grid;
+	margin: 120px auto;
+	width: min(80%, 1360px);
+	gap: 100px;
+}
 </style>

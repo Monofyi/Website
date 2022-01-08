@@ -146,7 +146,7 @@ export default {
 
 	a {
 		font-family: 'Montserrat', sans-serif;
-		font-size: 1.4em;
+		font-size: 1.2em;
 		font-weight: 600;
 	}
 }
@@ -155,12 +155,12 @@ export default {
 	display: flex;
 	align-items: center;
 	animation: Fade 1s ease-in-out;
-	padding: 10px 0;
+	padding: 8px 0;
 	gap: 10px;
 
 	font-family: 'Righteous', sans-serif;
 	font-weight: 400;
-	font-size: 1.8em;
+	font-size: 1.6em;
 
 	transition: all 0.3s ease-in-out;
 
