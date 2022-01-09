@@ -9,40 +9,55 @@
 			<nav class="nav">
 				<ul class="nav--container">
 					<li>
-						<a href="/" class="nav--link">Home</a>
+						<router-link to="/" class="nav--link">
+							Home
+						</router-link>
 					</li>
 					<li>
-						<a href="/" class="nav--link">Subscription</a>
+						<router-link to="subscription" class="nav--link">
+							Subscription
+						</router-link>
 					</li>
 					<li>
-						<a href="/" class="nav--link">Contact</a>
+						<router-link to="contact" class="nav--link">
+							Contact
+						</router-link>
 					</li>
 				</ul>
 
 				<div class="menu" :class="{'open': menuOpen}">
 					<ul class="menu--container mobile">
 						<li>
-							<a href="/" class="nav--link">Home</a>
+							<router-link to="/" class="nav--link">
+								Home
+							</router-link>
 						</li>
 						<li>
-							<a href="/" class="nav--link">Subscription</a>
+							<router-link to="subscription" class="nav--link">
+								Subscription
+							</router-link>
 						</li>
 						<li>
-							<a href="/" class="nav--link">Contact</a>
+							<router-link to="contact" class="nav--link">
+								Contact
+							</router-link>
 						</li>
 					</ul>
 					<ul class="menu--container">
 						<li>
-							<a href="/" class="nav--link">About Us</a>
+							<router-link to="t&c" class="nav--link">
+								T&C
+							</router-link>
 						</li>
 						<li>
-							<a href="/" class="nav--link">T&C</a>
+							<router-link to="faq" class="nav--link">
+								FAQ
+							</router-link>
 						</li>
 						<li>
-							<a href="/" class="nav--link">FAQ</a>
-						</li>
-						<li>
-							<a href="/" class="nav--link">Privacy Policy</a>
+							<router-link to="privacy" class="nav--link">
+								Privacy Policy
+							</router-link>
 						</li>
 					</ul>
 				</div>
@@ -78,7 +93,12 @@ export default {
 		toggleMenu() {
 			this.menuOpen = !this.menuOpen
 		}
-	}
+	},
+	mounted() {
+		let section=this.$router.currentRoute.value.hash.replace("#", "");
+		if (section)
+			this.$nextTick(()=> window.document.getElementById(section).scrollIntoView());
+	},
 }
 </script>
 
