@@ -118,6 +118,7 @@ export default {
 }
 
 .header {
+	z-index: 100;
 	background-color: var(--color-bg);
 	box-shadow: 0 1px 5px 0 var(--color-text);
 	margin: 0 auto;

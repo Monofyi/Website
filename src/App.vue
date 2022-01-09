@@ -1,9 +1,12 @@
 <template>
 	<Header/>
-
-	<main>
-		<router-view/>
-	</main>
+		<router-view v-slot="{ Component }">
+			<transition name="fade" mode="out-in">
+				<main :key="$route.name">
+					<component :is="Component" />
+				</main>
+			</transition>
+		</router-view>
 </template>
 <script>
 import Header from '@/components/Header.vue'
@@ -11,11 +14,37 @@ import Header from '@/components/Header.vue'
 export default {
 	name: 'App',
 	components: {
-		Header
+		Header,
 	}
 }
 </script>
 <style lang="scss">
+.fade {
+	&-enter {
+		&-active {
+			opacity: 0;
+			transform: translateY(-20px);
+			transition: all .3s ease;
+		}
+
+		&-to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	&-leave {
+		&-active {
+			transition: all .3s ease;
+		}
+
+		&-to {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+	}
+}
+
 :root {
 	scroll-behavior: smooth;
 
@@ -53,6 +82,7 @@ main {
 	display: grid;
 	margin: 120px auto;
 	width: min(80%, 1360px);
+	background: var(--color-bg);
 	gap: 100px;
 }
 </style>
