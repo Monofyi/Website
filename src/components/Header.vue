@@ -93,12 +93,7 @@ export default {
 		toggleMenu() {
 			this.menuOpen = !this.menuOpen
 		}
-	},
-	mounted() {
-		let section=this.$router.currentRoute.value.hash.replace("#", "");
-		if (section)
-			this.$nextTick(()=> window.document.getElementById(section).scrollIntoView());
-	},
+	}
 }
 </script>
 
@@ -288,7 +283,8 @@ export default {
 	}
 
 	.menu {
-		transform: translateY(0%);
+		transition: 0s;
+		transition-delay: 0.5s;
 		gap: 40px;
 
 		&--container {
@@ -302,6 +298,10 @@ export default {
 			&:nth-child(2) {
 				transform: translateX(150%)
 			}
+		}
+
+		&.open {
+			transition: 0s;
 		}
 
 		&.open .menu--container {
