@@ -1,11 +1,40 @@
-import { createWebHistory, createRouter } from "vue-router";
-import Home from "@/pages/Home";
+import {createWebHistory, createRouter} from "vue-router";
 
 const routes = [
     {
-        path: "/",
         name: "Home",
-        component: Home,
+        path: "/",
+        component: () => import("@/pages/Home")
+    },
+    {
+        name: "Terms & Conditions",
+        path: "/t&c",
+        component: () => import("@/pages/TandC")
+    },
+    {
+        name: "FAQ",
+        path: "/faq",
+        component: () => import("@/pages/Faq")
+    },
+    {
+        name: "Privacy Policy",
+        path: "/privacy",
+        component: () => import("@/pages/Privacy")
+    },
+    {
+        name: "subscription",
+        path: "/subscription",
+        component: () => import("@/pages/Subscription")
+    },
+    {
+        name: "Contact",
+        path: "/contact",
+        component: () => import("@/pages/Contact")
+    },
+    {
+        name: "404",
+        path: "/:catchAll(.*)",
+        component: () => import("@/pages/E404")
     }
 ]
 
