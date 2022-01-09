@@ -42,6 +42,11 @@ body {
 	ul {
 		list-style: none;
 	}
+
+	*::selection {
+		background: var(--color-primary);
+		color: var(--color-bg);
+	}
 }
 
 main {
