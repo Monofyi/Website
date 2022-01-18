@@ -3,24 +3,20 @@
 	<h2>PRICING</h2>
 	<h3>What are the charges for Bitecope app?</h3>
 	<p>
-		Bitecope is based on monthly subscription model (for more details contact
-		support@bitecope.com), however user are provided with 30 day free trial for
-		the first instance when they Sign up. So that, user can try & test the app
+		Bitecope is based on monthly subscription model (for more details contact support@bitecope.com), however user are
+		provided with 30 day free trial for the first instance when they Sign up. So that, user can try & test the app
 		features and assess its use-case before buying it.
 	</p>
 
 	<h2>PRODUCT RELATED</h2>
 
 	<h3>What kind of businesses can use this app?</h3>
-	<p>
-		Manufacturing companies belonging to any sectors can use this app. Size of
-		the company also does not	matter.
-	</p>
+	<p>Manufacturing companies belonging to any sectors can use this app. Size of the company also does not matter.</p>
 
 	<h3>Where can we download Bitecope Desktop app?</h3>
 	<p>
-		Desktop Version is still under development phase. Once it's launched we will
-		notify all our users.	Your patience is highly appreciated.
+		Desktop Version is still under development phase. Once it's launched we will notify all our users. Your patience is
+		highly appreciated.
 	</p>
 
 	<h3>How can I manage worker permission?</h3>
@@ -31,17 +27,15 @@
 
 	<h3>Is Bitecope Cloud/Web based?</h3>
 	<p>
-		Bitecope is still in process of launching this services, Once it's launched
-		we will notify all our users. Your patience is highly appreciated.
+		Bitecope is still in process of launching this services, Once it's launched we will notify all our users. Your
+		patience is highly appreciated.
 	</p>
 </template>
 
 <script>
 export default {
-	name: "Faq"
-}
+	name: "Faq",
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

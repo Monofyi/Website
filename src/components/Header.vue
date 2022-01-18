@@ -2,77 +2,62 @@
 	<header class="header">
 		<div class="header--container">
 			<a href="/" class="word-mark">
-				<img src="../assets/logo.svg" alt="Bite Cope Startup logo">
+				<img src="../assets/logo.svg" alt="Bite Cope Startup logo" />
 				Bitecope
 			</a>
 
 			<nav class="nav">
 				<ul class="nav--container">
 					<li>
-						<router-link to="/" class="nav--link">
-							Home
-						</router-link>
+						<router-link to="/" class="nav--link"> Home </router-link>
 					</li>
 					<li>
-						<router-link to="subscription" class="nav--link">
-							Subscription
-						</router-link>
+						<router-link to="subscription" class="nav--link"> Subscription </router-link>
 					</li>
 					<li>
-						<router-link to="contact" class="nav--link">
-							Contact
-						</router-link>
+						<router-link to="contact" class="nav--link"> Contact </router-link>
 					</li>
 				</ul>
 
-				<div class="menu" :class="{'open': menuOpen}">
+				<div class="menu" :class="{ open: menuOpen }">
 					<ul class="menu--container mobile">
 						<li>
-							<router-link to="/" class="nav--link">
-								Home
-							</router-link>
+							<router-link to="/" class="nav--link"> Home </router-link>
 						</li>
 						<li>
-							<router-link to="subscription" class="nav--link">
-								Subscription
-							</router-link>
+							<router-link to="subscription" class="nav--link"> Subscription </router-link>
 						</li>
 						<li>
-							<router-link to="contact" class="nav--link">
-								Contact
-							</router-link>
+							<router-link to="contact" class="nav--link"> Contact </router-link>
 						</li>
 					</ul>
 					<ul class="menu--container">
 						<li>
-							<router-link to="t&c" class="nav--link">
-								T&C
-							</router-link>
+							<router-link to="t&c" class="nav--link"> T&C </router-link>
 						</li>
 						<li>
-							<router-link to="faq" class="nav--link">
-								FAQ
-							</router-link>
+							<router-link to="faq" class="nav--link"> FAQ </router-link>
 						</li>
 						<li>
-							<router-link to="privacy" class="nav--link">
-								Privacy Policy
-							</router-link>
+							<router-link to="privacy" class="nav--link"> Privacy Policy </router-link>
 						</li>
 					</ul>
 				</div>
-				<div id="hamburger" :class="{'open': menuOpen}" @click="toggleMenu()">
+				<div id="hamburger" :class="{ open: menuOpen }" @click="toggleMenu()">
 					<svg width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
 						<g stroke="black">
 							<path
-									d="M4.79817e-06 3C4.79817e-06 3 5.51343e-06 3 0 2.00024L32 2C32 2.27613 32 2.00024 32 3.00024L4.79817e-06 3Z"
-									fill="black"/>
+								d="M4.79817e-06 3C4.79817e-06 3 5.51343e-06 3 0 2.00024L32 2C32 2.27613 32 2.00024 32 3.00024L4.79817e-06 3Z"
+								fill="black"
+							/>
 							<path
-									d="M4.79817e-06 15C4.79817e-06 15 5.51343e-06 15 0 14.0002L32 14C32 14.2761 32 14.0002 32 15.0002L4.79817e-06 15Z"
-									fill="black"/>
+								d="M4.79817e-06 15C4.79817e-06 15 5.51343e-06 15 0 14.0002L32 14C32 14.2761 32 14.0002 32 15.0002L4.79817e-06 15Z"
+								fill="black"
+							/>
 							<path
-									d="M4.79817e-06 27C4.79817e-06 27 5.51343e-06 27 0 26.0002L32 26C32 26.2761 32 26.0002 32 27.0002L4.79817e-06 27Z"
-									fill="black"/>
+								d="M4.79817e-06 27C4.79817e-06 27 5.51343e-06 27 0 26.0002L32 26C32 26.2761 32 26.0002 32 27.0002L4.79817e-06 27Z"
+								fill="black"
+							/>
 						</g>
 					</svg>
 				</div>
@@ -86,15 +71,15 @@ export default {
 	name: "Header.vue",
 	data() {
 		return {
-			menuOpen: false
-		}
+			menuOpen: false,
+		};
 	},
 	methods: {
 		toggleMenu() {
-			this.menuOpen = !this.menuOpen
-		}
-	}
-}
+			this.menuOpen = !this.menuOpen;
+		},
+	},
+};
 </script>
 
 <style lang="scss" scoped>
@@ -161,7 +146,7 @@ export default {
 	}
 
 	a {
-		font-family: 'Montserrat', sans-serif;
+		font-family: "Montserrat", sans-serif;
 		font-size: 1.2em;
 		font-weight: 600;
 	}
@@ -174,14 +159,14 @@ export default {
 	padding: 8px 0;
 	gap: 10px;
 
-	font-family: 'Righteous', sans-serif;
+	font-family: "Righteous", sans-serif;
 	font-weight: 400;
 	font-size: 1.6em;
 
 	transition: all 0.3s ease-in-out;
 
 	&:hover {
-		color: var(--color-primary)
+		color: var(--color-primary);
 	}
 
 	img {
@@ -195,7 +180,7 @@ export default {
 	display: flex;
 	position: absolute;
 	transform: translateY(-150%);
-	transition: transform .5s ease-in-out;
+	transition: transform 0.5s ease-in-out;
 	margin-top: 20px;
 	left: 10px;
 	right: 10px;
@@ -212,7 +197,6 @@ export default {
 
 		box-shadow: 0 1px 5px 0 var(--color-text);
 		background-color: var(--color-bg);
-
 
 		li {
 			padding: 10px 0;
@@ -251,7 +235,7 @@ export default {
 		}
 
 		&:hover g {
-			stroke: var(--color-primary)
+			stroke: var(--color-primary);
 		}
 	}
 
@@ -260,15 +244,15 @@ export default {
 
 		path {
 			&:nth-child(1) {
-				transform: rotate(45deg)
+				transform: rotate(45deg);
 			}
 
 			&:nth-child(2) {
-				transform: scaleX(0)
+				transform: scaleX(0);
 			}
 
 			&:nth-child(3) {
-				transform: rotate(-45deg) translateY(-1.5px) translateX(3px)
+				transform: rotate(-45deg) translateY(-1.5px) translateX(3px);
 			}
 		}
 	}
@@ -297,7 +281,7 @@ export default {
 			}
 
 			&:nth-child(2) {
-				transform: translateX(150%)
+				transform: translateX(150%);
 			}
 		}
 

@@ -3,20 +3,17 @@
 // For Token Refresh http://127.0.0.0:8000/api/token/refresh/
 // For Token Blacklist http://127.0.0.0:8000/api/user/logout/blacklist/
 
+import axios from "axios";
 
-import axios from 'axios';
-
-const baseURL = 'http://127.0.0.1:8000/api/';
+const baseURL = "http://127.0.0.1:8000/api/";
 
 const axiosInstance = axios.create({
     baseURL: baseURL,
     timeout: 5000,
     headers: {
-        Authorization: localStorage.getItem('access_token')
-            ? 'JWT ' + localStorage.getItem('access_token')
-            : null,
-        'Content-Type': 'application/json',
-        accept: 'application/json',
+        Authorization: localStorage.getItem("access_token") ? "JWT " + localStorage.getItem("access_token") : null,
+        "Content-Type": "application/json",
+        accept: "application/json",
     },
 });
 
@@ -27,32 +24,29 @@ axiosInstance.interceptors.response.use(
     async function (error) {
         const originalRequest = error.config;
 
-        if (typeof error.response === 'undefined') {
+        if (typeof error.response === "undefined") {
             alert(
-                'A server/network error occurred. ' +
-                'Looks like CORS might be the problem. ' +
-                'Sorry about this - we will get it fixed shortly.'
+                "A server/network error occurred. " +
+                    "Looks like CORS might be the problem. " +
+                    "Sorry about this - we will get it fixed shortly."
             );
             return Promise.reject(error);
         }
 
-        if (
-            error.response.status === 401 &&
-            originalRequest.url === baseURL + 'token/refresh/'
-        ) {
-            window.location.href = '/login/';
+        if (error.response.status === 401 && originalRequest.url === baseURL + "token/refresh/") {
+            window.location.href = "/login/";
             return Promise.reject(error);
         }
 
         if (
-            error.response.data.code === 'token_not_valid' &&
+            error.response.data.code === "token_not_valid" &&
             error.response.status === 401 &&
-            error.response.statusText === 'Unauthorized'
+            error.response.statusText === "Unauthorized"
         ) {
-            const refreshToken = localStorage.getItem('refresh_token');
+            const refreshToken = localStorage.getItem("refresh_token");
 
             if (refreshToken) {
-                const tokenParts = JSON.parse(atob(refreshToken.split('.')[1]));
+                const tokenParts = JSON.parse(atob(refreshToken.split(".")[1]));
 
                 // exp date in token is expressed in seconds, while now() returns milliseconds:
                 const now = Math.ceil(Date.now() / 1000);
@@ -60,15 +54,13 @@ axiosInstance.interceptors.response.use(
 
                 if (tokenParts.exp > now) {
                     return axiosInstance
-                        .post('/token/refresh/', {refresh: refreshToken})
+                        .post("/token/refresh/", { refresh: refreshToken })
                         .then((response) => {
-                            localStorage.setItem('access_token', response.data.access);
-                            localStorage.setItem('refresh_token', response.data.refresh);
+                            localStorage.setItem("access_token", response.data.access);
+                            localStorage.setItem("refresh_token", response.data.refresh);
 
-                            axiosInstance.defaults.headers['Authorization'] =
-                                'JWT ' + response.data.access;
-                            originalRequest.headers['Authorization'] =
-                                'JWT ' + response.data.access;
+                            axiosInstance.defaults.headers["Authorization"] = "JWT " + response.data.access;
+                            originalRequest.headers["Authorization"] = "JWT " + response.data.access;
 
                             return axiosInstance(originalRequest);
                         })
@@ -76,12 +68,12 @@ axiosInstance.interceptors.response.use(
                             console.log(err);
                         });
                 } else {
-                    console.log('Refresh token is expired', tokenParts.exp, now);
-                    window.location.href = '/login/';
+                    console.log("Refresh token is expired", tokenParts.exp, now);
+                    window.location.href = "/login/";
                 }
             } else {
-                console.log('Refresh token not available.');
-                window.location.href = '/login/';
+                console.log("Refresh token not available.");
+                window.location.href = "/login/";
             }
         }
 

@@ -1,22 +1,22 @@
 <template>
-	<Header/>
-		<router-view v-slot="{ Component }">
-			<transition name="fade" mode="out-in">
-				<main :key="$route.name">
-					<component :is="Component" />
-				</main>
-			</transition>
-		</router-view>
+	<Header />
+	<router-view v-slot="{ Component }">
+		<transition name="fade" mode="out-in">
+			<main :key="$route.name">
+				<component :is="Component" />
+			</main>
+		</transition>
+	</router-view>
 </template>
 <script>
-import Header from '@/components/Header.vue'
+import Header from "@/components/Header.vue";
 
 export default {
-	name: 'App',
+	name: "App",
 	components: {
 		Header,
-	}
-}
+	},
+};
 </script>
 <style lang="scss">
 .fade {
@@ -24,7 +24,7 @@ export default {
 		&-active {
 			opacity: 0;
 			transform: translateY(-20px);
-			transition: all .3s ease;
+			transition: all 0.3s ease;
 		}
 
 		&-to {
@@ -35,7 +35,7 @@ export default {
 
 	&-leave {
 		&-active {
-			transition: all .3s ease;
+			transition: all 0.3s ease;
 		}
 
 		&-to {
@@ -53,7 +53,7 @@ export default {
 	--color-text: #0f0f0f;
 	--color-text-light: #838383;
 
-	--color-primary: #fE7624;
+	--color-primary: #fe7624;
 	--color-secondary: #205eff;
 }
 
@@ -61,7 +61,7 @@ body {
 	margin: 0;
 
 	font-size: clamp(12px, 1.5vw, 16px);
-	font-family: 'Open Sans', sans-serif;
+	font-family: "Open Sans", sans-serif;
 
 	a {
 		color: inherit;
