@@ -17,7 +17,7 @@
         "web-vitals": "^1.1.1",
         "nodemailer": "^6.6.3",
         "querystring": "^0.2.1",
-        "netlify-cli": "^12.12.0"
+        "netlify-cli": "^16.4.2"
     },
     "scripts": {
         "start": "react-scripts start",
